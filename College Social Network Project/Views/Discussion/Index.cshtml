@@ -1,0 +1,79 @@
+﻿@*@model IEnumerable<College_Social_Network_Project.Models.Dquestion>*@
+@using PagedList.Mvc;
+@model PagedList.IPagedList<College_Social_Network_Project.Models.Dquestion>
+
+@{
+    ViewBag.Title = "Index";
+
+}
+<link href="~/Content/StyleSheet2.css" rel="stylesheet" />
+@Html.Partial("_Dashboard")
+
+
+<h2 id="Duser"> Discussion </h2>
+<p id="indexcreatequestion">
+    <a class="button-55" id="indexcreatequestion" href="@Url.Action("CreateQuestion")">Add Question</a>
+</p>
+<table id="usersdis">
+
+    @foreach (var dquestion in Model)
+    {
+        <tr>
+            <td>
+
+                <div id="quser">
+                    @Html.DisplayFor(modelItem => dquestion.AspNetUser.Email)
+
+                    @if ((string)@TempData["userId"] == dquestion.AspNetUser.Id | User.IsInRole("Admin"))
+                    {
+                    <span id="qspan">
+                        @if (!User.IsInRole("Admin"))
+                        {
+                            <a id="qedit" href="@Url.Action("EditQuestion", new { id = dquestion.Dquestion_id })">Edit</a>
+                        }
+                            <a id="qdelete" href="@Url.Action("DeleteQuestion", new { id = dquestion.Dquestion_id })">Delete</a>
+                        </span>
+                    }
+                </div>
+                <div id="qcon"> @Html.DisplayFor(modelItem => dquestion.Dquestion_content) </div>
+                <div id="qdate">
+                    <a id="qreplay" href="@Url.Action("CreateReplay", new { idR = dquestion.Dquestion_id })">Replay</a>
+                    <span>@Html.DisplayFor(modelItem => dquestion.Dquestion_DateTime) </span>
+                </div>
+                <br />
+                @foreach (var dreplay in dquestion.Dreplays)
+                {
+                    <div id="ruser">
+                        @Html.DisplayFor(modelItem => dreplay.AspNetUser.Email)
+                        @if ((string)@TempData["userId"] == dreplay.AspNetUser.Id | User.IsInRole("Admin"))
+                        {
+                        <span id="qspan">
+                             @if ( !User.IsInRole("Admin"))
+                             {
+                                <a id="qedit" href="@Url.Action("EditReplay", new { id = dreplay.Dreplay_id })">Edit</a>
+                             }
+                                <a id="qdelete" href="@Url.Action("DeleteReplay", new { id = dreplay.Dreplay_id })">Delete</a>   
+                        </span>
+                        }
+                    </div>
+                    <div id="rcon"> @Html.DisplayFor(modelItem => dreplay.Dreplay_content) </div>
+                    <div id="rdate"> @Html.DisplayFor(modelItem => dreplay.Dreplay_DateTime) </div>
+                    <br />
+                }
+
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+<div id="container">
+    <p></p>
+    <p></p>
+    <div class="pagination" style="margin-left:500px">
+        Page@(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+        of @Model.PageCount @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    </div>
+</div>
+

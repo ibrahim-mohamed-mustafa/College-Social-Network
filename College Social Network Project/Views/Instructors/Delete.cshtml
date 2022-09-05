@@ -1,0 +1,75 @@
+﻿@model College_Social_Network_Project.Models.Instructor
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<link href="~/Content/StyleSheet2.css" rel="stylesheet" />
+<h1><br></h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<h3 id="Duser">Instructor :  @Html.DisplayFor(model => model.Iemail) </h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Iemail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Iemail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Iaddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Iaddress)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Igender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Igender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Iofficehours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Iofficehours)
+        </dd>
+
+
+
+    </dl>
+
+
+    <div class="form">
+        <section class="loginForm">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-3">
+                        <input type="submit" value="Delete" class="button-55"  id="delete"/>
+                        <br /><br />
+                    </div>
+
+                    <div class="col-md-offset-4 col-md-5">
+                        @Html.ActionLink("Cancel", "Index", null, new { @class = "button-55" })
+                        <br /><br />
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+
+</div>

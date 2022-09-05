@@ -1,0 +1,62 @@
+﻿@*@model IEnumerable<College_Social_Network_Project.Models.Annnouncement>*@
+@using PagedList.Mvc;
+@model PagedList.IPagedList<College_Social_Network_Project.Models.Annnouncement>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/StyleSheet2.css" rel="stylesheet" />
+@Html.Partial("_Dashboard")
+<p id="indexcreateuserrole">
+
+    <a class="button-55" id="indexcreatean" href="@Url.Action("Create")">Create New </a>
+</p>
+
+<table id="users">
+    <tr>
+        <th>
+            Instructor Email
+        </th>
+        <th>
+           Announcement
+        </th>
+        <th>
+            Announcement Time
+        </th>
+        <th></tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Instructor.Iemail)
+            </td>
+            <td id="annouce">
+                @Html.DisplayFor(modelItem => item.Announce_content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Announce_DateTime)
+            </td>
+            <td id="indextd">
+                <a class="button-55" id="indexedit" href="@Url.Action("Edit" ,new { id = item.Announce_id  })">Edit </a>
+                <br><br>
+                <a class="button-55" id="indexdelete" href="@Url.Action("Delete" ,new { id = item.Announce_id  })">Delete </a>
+
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+<div id="container" >
+    <p></p>
+    <p></p>
+    <div class="pagination" style="margin-left:500px">
+        Page@(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+        of @Model.PageCount @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    </div>
+</div>

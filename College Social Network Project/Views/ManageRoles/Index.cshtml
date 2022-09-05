@@ -1,0 +1,36 @@
+﻿@model IEnumerable<College_Social_Network_Project.Models.AspNetRole>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="~/Content/StyleSheet2.css" rel="stylesheet" />
+@Html.Partial("_Dashboard")
+<p id="indexcreateManage">
+
+    <a class="button-55" id="indexcreate" href="@Url.Action("Create")">Create New </a>
+</p>
+<table id="users">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td id="indextd">
+                <a class="button-55" id="indexedit" href="@Url.Action("Edit" ,new { id = item.Id })">Edit </a>
+                <a class="button-55" id="indexdelete" href="@Url.Action("Delete" ,new { id = item.Id })">Delete </a>
+
+            </td>
+
+        </tr>
+    }
+
+</table>

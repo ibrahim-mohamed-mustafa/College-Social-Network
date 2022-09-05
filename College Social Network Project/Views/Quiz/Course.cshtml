@@ -1,0 +1,32 @@
+﻿@model IEnumerable<College_Social_Network_Project.Models.Course>
+@{
+    ViewBag.Title = "Course";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+<table id="users">
+    <tr>
+        <th>
+           
+            <h4>Course Description</h4>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cdesc)
+            </td>
+            <td id="indextd">
+                <a class="button-55" id="indexupload" href="@Url.Action( "MainAddcategory",new { course_id = item.Cid })"> Create Quiz Room </a>
+
+            </td>
+
+        </tr>
+    }
+
+</table>
+

@@ -1,0 +1,76 @@
+﻿@model College_Social_Network_Project.Models.Join_course
+
+
+<link href="~/Content/StyleSheet2.css" rel="stylesheet" />
+@Html.Partial("_Dashboard")
+
+
+<h1 id="Duser">Enroll Course</h1>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+
+    <br>
+    
+    
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group" id="hide">
+        @Html.LabelFor(model => model.User_id, "User_id", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.User_id, new { htmlAttributes = new { @class = "form-control", @Value = @TempData["userId"], @readonly = "readonly" } })
+
+            @Html.ValidationMessageFor(model => model.User_id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Course_id, "Course Description", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Course_id", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Course_id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" id="hide">
+        @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Notes, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    
+
+    <div class="form" id="enrollform">
+        <section class="loginForm">
+
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-3">
+                    <input type="submit" value="Enroll" class="button-55" id="save" />
+                    <br /><br />
+                </div>
+
+                <div class="col-md-offset-4 col-md-5">
+                    @if (User.IsInRole("Student"))
+                    {
+                        @Html.ActionLink("Cancel", "Course", "StudentsWorld", null, new { @class = "button-55" })
+                    }
+                    @if (User.IsInRole("Instructor"))
+                    {
+                        @Html.ActionLink("Cancel", "Course", "InstructorWorld", null, new { @class = "button-55" })
+                    }
+                    <br /><br />
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+</div>
+
+    }
+
+  
+

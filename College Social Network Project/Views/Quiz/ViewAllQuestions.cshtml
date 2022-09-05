@@ -1,0 +1,90 @@
+﻿@*@model IEnumerable<College_Social_Network_Project.Models.TBL_QUESTIONS>*@
+@using PagedList.Mvc;
+@model PagedList.IPagedList<College_Social_Network_Project.Models.TBL_QUESTIONS>
+@{
+    ViewBag.Title = "ViewAllQuestions";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<link href="~/Content/StyleSheet2.css" rel="stylesheet" />
+<h2 id="Duser">View All Questions</h2>
+
+<table id="users">
+    <tr>
+        <th>
+            Question
+        </th>
+        <th>
+            Option A
+        </th>
+        <th>
+            Option B
+        </th>
+        <th>
+            Option C
+        </th>
+        <th>
+            Option D
+        </th>
+        <th>
+            Correct Option Answer
+        </th>
+        <th>
+            <p>Mark ( @TempData["marks"]) </p>
+        </th>
+        <th>
+            Quiz Room Name
+        </th>
+        <th></th>
+    </tr>
+
+   
+    @foreach (var item in Model)
+    {
+       
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Q_TEXT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OPA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OPB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OPC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OPD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.COP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mark) 
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tbl_categroy.cat_name)
+            </td>
+
+            <td id="indextdq">
+                <a class="button-55" id="indexedit" href="@Url.Action("Edit" ,new { id = item.QUESTION_ID })">Edit </a>
+                <a class="button-55" id="indexdelete" href="@Url.Action("Delete" ,new { id = item.QUESTION_ID })">Delete </a>
+
+            </td>
+
+
+        </tr>
+    }
+
+</table>
+
+<div id="container" style="margin-left:20px">
+    <p></p>
+    <p></p>
+    <div class="pagination" style="margin-left:500px">
+        Page@(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+        of @Model.PageCount @Html.PagedListPager(Model, page => Url.Action("ViewAllQuestions", new { page }))
+    </div>
+</div>
+

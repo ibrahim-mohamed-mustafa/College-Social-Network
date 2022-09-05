@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Confirm Email";
+}
+<link href="~/Content/StyleSheet2.css" rel="stylesheet" />
+
+<div class="flex items-center justify-center min-h-screen p-5 bg-gray-600 min-w-screen">
+    <div class="max-w-xl p-8 text-center text-gray-800 bg-white shadow-xl lg:max-w-3xl rounded-3xl lg:p-12">
+        <h3 class="text-2xl">Thanks for signing up for College Social Network</h3>
+        <div id="conreset">
+
+            <img src="/Images/mail.png" alt="">
+            <br> <br>
+            <p id="happyconreset">@ViewBag.Title</p>
+            <div class="mt-4">
+
+                <p id="conrest">
+                    Your Email has been confirmed successfully
+
+                </p>
+            </div>
+            @Html.ActionLink("Click here to log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "button-71" })
+        </div>
+    </div>
+</div>

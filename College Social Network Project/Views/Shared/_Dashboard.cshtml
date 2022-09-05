@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <link href="~/Content/DashboardSheet.css" rel="stylesheet" />
+</head>
+<body>
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="side-menu">
+            <div class="brand-name">
+                <h2>Admin Panel</h2>
+            </div>
+            <ul>
+                <li><img src="/Images/admin.png" alt="">&nbsp; &nbsp;<span><a href="/Admins/Create"> My Profile</a></span>  </li>
+                <li><img src="/Images/dashboard (2).png" alt="">&nbsp; &nbsp;<span><a href="/Dashboard"> Dashboard</a></span>  </li>
+                <li><img src="/Images/chatm.png" alt="">&nbsp; &nbsp;<a href="/Chat"> Chat</a> </li>
+                <li><img src="/Images/diss.png" alt="">&nbsp; &nbsp;<a href="/Discussion"> Discussion </a> </li>
+                <li><img src="/Images/course.png" alt="">&nbsp; &nbsp;<span><a href="/Courses"> Courses</a></span> </li>
+                <li><img src="/Images/reading-book (1).png" alt="">&nbsp; &nbsp;<span><a href="/Students"> Students</a></span> </li>
+                <li><img src="/Images/teacher2.png" alt="">&nbsp; &nbsp;<span><a href="/Instructors"> Instructors</a></span></li>
+                <li><img src="/Images/userrole.png" alt="">&nbsp; &nbsp;<a href="/UserRoles"> User Role</a> </li>
+                <li><img src="/Images/checkeduser.png" alt="">&nbsp; &nbsp;<a href="/ManageRoles"> Manage Role</a> </li>
+                @*<li><img src="/Images/settings.png" alt="">&nbsp; &nbsp;<span>Settings</span> </li>*@
+            </ul>
+        </div>
+    }
+
+    @if (User.IsInRole("Instructor"))
+    {
+        <div class="side-menu">
+            <div class="brand-name">
+                <h2>Instructor Panel</h2>
+            </div>
+            <ul>
+                <li><img src="/Images/instworld.png" alt="">&nbsp; &nbsp;<span><a href="/InstructorWorld/Create"> My Profile</a></span>  </li>
+                <li><img src="/Images/dashboard (2).png" alt="">&nbsp; &nbsp;<span><a href="/InstructorWorld"> Dashboard</a></span>  </li>
+                <li><img src="/Images/course.png" alt="">&nbsp; &nbsp;<span><a href="/InstructorWorld/Course"> Courses</a></span> </li>
+                <li><img src="/Images/questionStud.png" alt="">&nbsp; &nbsp;<a href="/Quiz"> Quiz </a> </li>
+                <li><img src="/Images/chatm.png" alt="">&nbsp; &nbsp;<a href="/Chat"> Chat</a> </li>
+                <li><img src="/Images/diss.png" alt="">&nbsp; &nbsp;<a href="/Discussion"> Discussion </a> </li>
+                <li><img src="/Images/annouce.png" alt="">&nbsp; &nbsp;<a href="/Annnouncements/Course"> Announce </a> </li>
+                @*<li><img src="/Images/settings.png" alt="">&nbsp; &nbsp;<span>Settings</span> </li>*@
+            </ul>
+        </div>
+    }
+
+    @if (User.IsInRole("Student"))
+    {
+        <div class="side-menu">
+            <div class="brand-name">
+                <h2>Student Panel</h2>
+            </div>
+            <ul>
+                <li><img src="/Images/studentworld.png" alt="">&nbsp; &nbsp;<span><a href="/StudentsWorld/Create"> My Profile</a></span>  </li>
+                <li><img src="/Images/dashboard (2).png" alt="">&nbsp; &nbsp;<span><a href="/StudentsWorld"> Dashboard</a></span>  </li>
+                <li><img src="/Images/course.png" alt="">&nbsp; &nbsp;<span><a href="/StudentsWorld/Course"> Courses</a></span> </li>
+                <li><img src="/Images/questionStud.png" alt="">&nbsp; &nbsp;<a href="/Quiz/Index_stu"> Quiz </a> </li>
+                <li><img src="/Images/chatm.png" alt="">&nbsp; &nbsp;<a href="/Chat"> Chat</a> </li>
+                <li><img src="/Images/diss.png" alt="">&nbsp; &nbsp;<a href="/Discussion"> Discussion </a> </li>
+                <li><img src="/Images/annouce.png" alt="">&nbsp; &nbsp;<a href="/Annnouncements/Course_student"> Announce </a> </li>
+                @*<li><img src="/Images/settings.png" alt="">&nbsp; &nbsp;<span>Settings</span> </li>*@
+            </ul>
+        </div>
+    }
+
+</body>
+</html>

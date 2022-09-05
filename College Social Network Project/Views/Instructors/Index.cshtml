@@ -1,0 +1,51 @@
+﻿@model IEnumerable<College_Social_Network_Project.Models.Instructor>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="~/Content/StyleSheet2.css" rel="stylesheet" />
+@Html.Partial("_Dashboard")
+<table id="users">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Iemail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Iaddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Igender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Iofficehours)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Iemail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Iaddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Igender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Iofficehours)
+            </td>
+
+            <td id="indextd">
+                <a class="button-55" id="indexedit" href="@Url.Action("Edit" ,new { id = item.Iid })">Edit </a>
+                <a class="button-55" id="indexdelete" href="@Url.Action("Delete" ,new { id = item.Iid })">Delete </a>
+
+            </td>
+        </tr>
+    }
+
+</table>

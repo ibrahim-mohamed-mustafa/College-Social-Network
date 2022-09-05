@@ -1,0 +1,61 @@
+﻿@model College_Social_Network_Project.Models.Annnouncement
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/StyleSheet2.css" rel="stylesheet" />
+
+<h2 id="Duser">Write Announcement</h2>
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+            @Html.TextAreaFor(model => model.Announce_content, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Announce_content, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group" id="hide">
+            @Html.LabelFor(model => model.Announce_DateTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Announce_DateTime, new { htmlAttributes = new { @class = "form-control", @Value = @TempData["datetime"], @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Announce_DateTime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+    <div class="form-group" id="hide">
+            @Html.LabelFor(model => model.Announce_FK_INS, "Announce_FK_INS", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Announce_FK_INS, new { htmlAttributes = new { @class = "form-control", @Value = @TempData["userId"], @readonly = "readonly" } })
+               
+                @Html.ValidationMessageFor(model => model.Announce_FK_INS, "", new { @class = "text-danger" })
+            </div>
+    </div>
+
+    <div class="form" >
+        <section class="loginForm">
+
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-3">
+                    <input type="submit" value="Add" class="button-55" id="save" />
+                    <br /><br />
+                </div>
+
+                <div class="col-md-offset-4 col-md-5">
+                    @Html.ActionLink("Cancel", "Index", null, new { @class = "button-55" })
+                    <br /><br />
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+
+</div>
+}
+

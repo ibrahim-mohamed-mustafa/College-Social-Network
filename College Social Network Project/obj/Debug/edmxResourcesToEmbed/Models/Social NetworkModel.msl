@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Social_NetworkEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="Model.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="Model.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="Aid" ColumnName="Aid" />
+          <ScalarProperty Name="Aemail" ColumnName="Aemail" />
+          <ScalarProperty Name="Agender" ColumnName="Agender" />
+          <ScalarProperty Name="Aaddress" ColumnName="Aaddress" />
+          <ScalarProperty Name="course_id" ColumnName="course_id" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="Model.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="Model.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="Model.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserRoles">
+      <EntityTypeMapping TypeName="Model.AspNetUserRole">
+        <MappingFragment StoreEntitySet="AspNetUserRoles">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="Model.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="Model.Course">
+        <MappingFragment StoreEntitySet="Course">
+          <ScalarProperty Name="Cid" ColumnName="Cid" />
+          <ScalarProperty Name="Cdesc" ColumnName="Cdesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Instructors">
+      <EntityTypeMapping TypeName="Model.Instructor">
+        <MappingFragment StoreEntitySet="Instructor">
+          <ScalarProperty Name="Iid" ColumnName="Iid" />
+          <ScalarProperty Name="Iaddress" ColumnName="Iaddress" />
+          <ScalarProperty Name="Iemail" ColumnName="Iemail" />
+          <ScalarProperty Name="Igender" ColumnName="Igender" />
+          <ScalarProperty Name="Iofficehours" ColumnName="Iofficehours" />
+          <ScalarProperty Name="course_id" ColumnName="course_id" />
+          <ScalarProperty Name="con_id" ColumnName="con_id" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="Model.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="Sid" ColumnName="Sid" />
+          <ScalarProperty Name="Saddress" ColumnName="Saddress" />
+          <ScalarProperty Name="Semail" ColumnName="Semail" />
+          <ScalarProperty Name="Sgender" ColumnName="Sgender" />
+          <ScalarProperty Name="Sacademicyear" ColumnName="Sacademicyear" />
+          <ScalarProperty Name="course_id" ColumnName="course_id" />
+          <ScalarProperty Name="con_id" ColumnName="con_id" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Model.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserConnections">
+      <EntityTypeMapping TypeName="Model.UserConnection">
+        <MappingFragment StoreEntitySet="UserConnection">
+          <ScalarProperty Name="ConnectionId" ColumnName="ConnectionId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="Model.Message">
+        <MappingFragment StoreEntitySet="Message">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Message1" ColumnName="Message" />
+          <ScalarProperty Name="ToUser" ColumnName="ToUser" />
+          <ScalarProperty Name="FromUser" ColumnName="FromUser" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_QUESTIONS">
+      <EntityTypeMapping TypeName="Model.TBL_QUESTIONS">
+        <MappingFragment StoreEntitySet="TBL_QUESTIONS">
+          <ScalarProperty Name="Mark" ColumnName="Mark" />
+          <ScalarProperty Name="q_fk_catid" ColumnName="q_fk_catid" />
+          <ScalarProperty Name="COP" ColumnName="COP" />
+          <ScalarProperty Name="OPD" ColumnName="OPD" />
+          <ScalarProperty Name="OPC" ColumnName="OPC" />
+          <ScalarProperty Name="OPB" ColumnName="OPB" />
+          <ScalarProperty Name="OPA" ColumnName="OPA" />
+          <ScalarProperty Name="Q_TEXT" ColumnName="Q_TEXT" />
+          <ScalarProperty Name="QUESTION_ID" ColumnName="QUESTION_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_SETEXAM">
+      <EntityTypeMapping TypeName="Model.TBL_SETEXAM">
+        <MappingFragment StoreEntitySet="TBL_SETEXAM">
+          <ScalarProperty Name="EXAM_FullMark" ColumnName="EXAM_FullMark" />
+          <ScalarProperty Name="EXAM_FK_CATID" ColumnName="EXAM_FK_CATID" />
+          <ScalarProperty Name="EXAM_STD_SCORE" ColumnName="EXAM_STD_SCORE" />
+          <ScalarProperty Name="EXAM_NAME" ColumnName="EXAM_NAME" />
+          <ScalarProperty Name="EXAM_FK_STU" ColumnName="EXAM_FK_STU" />
+          <ScalarProperty Name="EXAM_DATE" ColumnName="EXAM_DATE" />
+          <ScalarProperty Name="EXAM_ID" ColumnName="EXAM_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_categroy">
+      <EntityTypeMapping TypeName="Model.tbl_categroy">
+        <MappingFragment StoreEntitySet="tbl_categroy">
+          <ScalarProperty Name="cat_time" ColumnName="cat_time" />
+          <ScalarProperty Name="cat_encyptedstring" ColumnName="cat_encyptedstring" />
+          <ScalarProperty Name="cat_fk_adid" ColumnName="cat_fk_adid" />
+          <ScalarProperty Name="cat_name" ColumnName="cat_name" />
+          <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Annnouncements">
+      <EntityTypeMapping TypeName="Model.Annnouncement">
+        <MappingFragment StoreEntitySet="Annnouncements">
+          <ScalarProperty Name="Announce_FK_INS" ColumnName="Announce_FK_INS" />
+          <ScalarProperty Name="Announce_DateTime" ColumnName="Announce_DateTime" />
+          <ScalarProperty Name="Announce_content" ColumnName="Announce_content" />
+          <ScalarProperty Name="Announce_id" ColumnName="Announce_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dquestions">
+      <EntityTypeMapping TypeName="Model.Dquestion">
+        <MappingFragment StoreEntitySet="Dquestion">
+          <ScalarProperty Name="Dquestion_FK_User" ColumnName="Dquestion_FK_User" />
+          <ScalarProperty Name="Dquestion_DateTime" ColumnName="Dquestion_DateTime" />
+          <ScalarProperty Name="Dquestion_content" ColumnName="Dquestion_content" />
+          <ScalarProperty Name="Dquestion_id" ColumnName="Dquestion_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dreplays">
+      <EntityTypeMapping TypeName="Model.Dreplay">
+        <MappingFragment StoreEntitySet="Dreplay">
+          <ScalarProperty Name="Dreplay_content" ColumnName="Dreplay_content" />
+          <ScalarProperty Name="Dreplay_FK_Dquestion" ColumnName="Dreplay_FK_Dquestion" />
+          <ScalarProperty Name="Dreplay_FK_User" ColumnName="Dreplay_FK_User" />
+          <ScalarProperty Name="Dreplay_DateTime" ColumnName="Dreplay_DateTime" />
+          <ScalarProperty Name="Dreplay_id" ColumnName="Dreplay_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Join_course">
+      <EntityTypeMapping TypeName="Model.Join_course">
+        <MappingFragment StoreEntitySet="Join_course">
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+          <ScalarProperty Name="User_id" ColumnName="User_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Course_Cat">
+      <EntityTypeMapping TypeName="Model.Course_Cat">
+        <MappingFragment StoreEntitySet="Course_Cat">
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Cat_id" ColumnName="Cat_id" />
+          <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Course_Ann">
+      <EntityTypeMapping TypeName="Model.Course_Ann">
+        <MappingFragment StoreEntitySet="Course_Ann">
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="ann_id" ColumnName="ann_id" />
+          <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

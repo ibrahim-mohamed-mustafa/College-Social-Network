@@ -1,0 +1,36 @@
+﻿@model IEnumerable<College_Social_Network_Project.Models.Course>
+@{
+    ViewBag.Title = "Course";
+}
+
+<link href="~/Content/StyleSheet2.css" rel="stylesheet" />
+@Html.Partial("_Dashboard")
+<p id="indexenroll">
+
+    <a class="button-55" id="indexenroll" href="@Url.Action("Create","Join_course")">Enroll Cource </a>
+</p>
+<table id="users">
+    <tr>
+        <th>
+            @*Html.DisplayNameFor(model => model.Cdesc)*@
+            <h4>Course Description</h4>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Cdesc)
+    </td>
+    <td id="indextd">
+        <a class="button-55" id="indexupload" href="@Url.Action( "Upload", "ObjFile",new { id = item.Cdesc })">Upload Matrial </a>
+       
+    </td>
+    
+</tr>
+    }
+
+</table>
+

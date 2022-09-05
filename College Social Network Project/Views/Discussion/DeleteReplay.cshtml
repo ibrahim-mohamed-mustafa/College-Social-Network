@@ -1,0 +1,71 @@
+﻿@model College_Social_Network_Project.Models.Dreplay
+
+@{
+    ViewBag.Title = "DeleteReplay";
+  
+}
+
+<link href="~/Content/StyleSheet2.css" rel="stylesheet" />
+<h1><br></h1>
+
+<h2 id="Duser">Are you sure you want to delete this?</h2>
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            Question
+            
+        </dt>
+
+        <dd >
+            
+            @Html.DisplayFor(model => model.Dquestion.Dquestion_content)
+        </dd>
+
+        <dt>
+           Your Replay
+        </dt>
+
+        <dd >
+            @Html.DisplayFor(model => model.Dreplay_content)
+        </dd>
+
+
+        <dt>
+            Your Replay's Time
+        </dt>
+
+        <dd >
+            @Html.DisplayFor(model => model.Dreplay_DateTime)
+        </dd>
+
+
+
+
+
+    </dl>
+
+    <div class="form">
+        <section class="loginForm">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-3">
+                        <input type="submit" value="Delete" class="button-55" id="delete" />
+                        <br /><br />
+                    </div>
+
+                    <div class="col-md-offset-4 col-md-5">
+                        @Html.ActionLink("Cancel", "Index", null, new { @class = "button-55" })
+                        <br /><br />
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+
+</div>

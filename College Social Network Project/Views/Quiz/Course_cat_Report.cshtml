@@ -1,0 +1,33 @@
+﻿@model IEnumerable<College_Social_Network_Project.Models.Course_Cat>
+@{
+    ViewBag.Title = "Course";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+
+<table id="users">
+    <tr>
+        <th>
+
+            <h4>Exam Name</h4>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in ViewData["list"] as List<College_Social_Network_Project.Models.tbl_categroy>)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cat_name)
+            </td>
+            <td id="indextd">
+                <a class="button-55" id="indexupload" href="@Url.Action( "Reports",new { course_id = @TempData["course_idR"] ,Cat_id=item.cat_id  } )"> Show Report </a>
+
+            </td>
+
+        </tr>
+    }
+
+</table>
+

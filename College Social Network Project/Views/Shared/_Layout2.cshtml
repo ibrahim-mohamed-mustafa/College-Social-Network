@@ -1,0 +1,51 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <link href="~/Content/StyleSheet2.css" rel="stylesheet" />
+    <link href="~/Content/DashboardSheet.css" rel="stylesheet" />
+  
+   
+</head>
+<body>
+ 
+        <div class="side-menu" >
+            <div class="brand-name">
+                <h2 id="quizstu">Quiz Panel</h2>
+            </div>
+             @if (User.IsInRole("Instructor"))
+             {
+                <ul>
+                    <li><img src="/Images/dashboard (2).png" alt="">&nbsp; &nbsp;<span><a href="/InstructorWorld"> Dashboard</a></span>  </li>
+                    <li><img src="/Images/addg.png" alt="">&nbsp; &nbsp;<a href="/Quiz/Course"> Add Quiz Room </a> </li>
+                    <li><img src="/Images/addq.png" alt="">&nbsp; &nbsp;<a href="/Quiz/Course_Questions"> Add Questions </a> </li>
+                    <li><img src="/Images/report.png" alt="">&nbsp; &nbsp;<a href="/Quiz/Course_Report"> Reports </a> </li>
+               
+                </ul>
+             }
+             @if (User.IsInRole("Student"))
+             {
+                <ul>
+                    <li><img src="/Images/dashboard (2).png" alt="">&nbsp; &nbsp;<span><a href="/StudentsWorld"> Dashboard</a></span>  </li>
+                    <li><img src="/Images/addg.png" alt="">&nbsp; &nbsp;<a href="/Quiz/StudentExam"> Quiz Room </a> </li>
+                    <li><img src="/Images/report.png" alt="">&nbsp; &nbsp;<a href="/Quiz/Course_Report_Stu"> My Grades </a> </li>
+               
+                </ul>
+             }
+        </div>
+        <div >
+            @RenderBody()
+        </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

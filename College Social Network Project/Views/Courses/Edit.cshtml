@@ -1,0 +1,50 @@
+﻿@model College_Social_Network_Project.Models.Course
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<link href="~/Content/StyleSheet2.css" rel="stylesheet" />
+<h1>Edit</h1>
+<h3 id="Duser">Course :  @Html.DisplayFor(model => model.Cdesc) </h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Cid)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Cdesc, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Cdesc, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Cdesc, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form">
+        <section class="loginForm">
+
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-3">
+                    <input type="submit" value="Save" class="button-55" id="save" />
+                    <br /><br />
+                </div>
+
+                <div class="col-md-offset-4 col-md-5">
+                    @Html.ActionLink("Cancel", "Index", null, new { @class = "button-55" })
+                    <br /><br />
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+  
+</div>
+}
+

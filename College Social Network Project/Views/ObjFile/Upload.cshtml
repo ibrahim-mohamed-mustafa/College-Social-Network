@@ -1,0 +1,122 @@
+﻿@using System.Data;
+@model IEnumerable<College_Social_Network_Project.Models.ObjFile>
+
+<link href="~/Content/StyleSheet2.css" rel="stylesheet" />
+<br>
+
+<h2 id="courseheader">Material :  @TempData["ID"]</h2>   
+
+@if (User.IsInRole("Instructor") | (User.IsInRole("Admin")))
+{
+    <div id="divfilehead" >
+
+
+        @using (@Html.BeginForm(null, null, FormMethod.Post,
+         new { enctype = "multipart/form-data" }))
+        {
+            if (TempData["Message"] != null)
+            {
+
+                <p id="pfilehead" >@TempData["Message"]</p>
+            }
+
+            <table id="filehead">
+                <tr>
+                    <td >
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <b id="file">File :</b>     
+                       
+                    </td>
+                    <td>
+                        <input type="file" name="files" id="files" multiple="multiple" />
+                    </td>
+
+                    <td>
+
+                        <input type="submit" class="button-55" value="submit" id="savefile" />
+                    </td>
+                </tr>
+
+            </table>
+        }
+
+    </div>
+}
+
+
+@if (User.IsInRole("Student"))
+{
+
+<div id="divfilehead" >
+    
+</div>
+}
+
+
+<div>
+
+    <br>
+    <table id="users">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.File)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th></th>
+            @if (User.IsInRole("Instructor"))
+            {
+                <th></th>
+            }
+            </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.File)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Size) byte
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            <a class="button-55" id="download" href="@Url.Action("Download" ,new {fileName = item.File })">Download </a>
+        </td>
+        @if (User.IsInRole("Instructor"))
+        { 
+            <td>
+                <a class="button-55" id="filedelete" href="@Url.Action("Delete" ,new {fileName =  item.File})">Delete </a>
+            </td>
+        }
+    </tr>
+
+        }
+    </table>
+</div>
+<Br>
+@if (User.IsInRole("Student"))
+{
+<div>
+    <a href="/StudentsWorld/Course" class="button-55" id="backupload"> Back to Courses </a>
+    
+</div>
+}
+@if (User.IsInRole("Instructor"))
+{
+    <div>
+        <a href="/InstructorWorld/Course" class="button-55" id="backupload"> Back to Courses</a>
+    </div>
+}
+
+

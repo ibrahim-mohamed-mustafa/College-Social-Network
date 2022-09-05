@@ -1,0 +1,100 @@
+﻿@model College_Social_Network_Project.Models.TBL_QUESTIONS
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>QuizStart</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/StyleSheet2.css" rel="stylesheet" />
+    <link href="~/Content/DashboardSheet.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="float-left">
+        <div id="timecountdown">
+        </div>
+        <div id="countdown">
+            <div id='tiles' class="color-full"></div>
+            <div class="countdown-label">Time Remaining</div>
+        </div>
+    </div>
+
+
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="container" style="margin:0 auto;margin-top:150px;">
+
+                <div class="row">
+                    <h3 id="Qquiz">Questions @TempData["TempQueston"] of @TempData["CountQuestion"] (@TempData["CurrentMark"] Mark)</h3>
+                </div>
+
+                <div class="row">
+                    <h1 id="squiz">@Html.DisplayFor(x => x.Q_TEXT)</h1>
+                </div>
+                <div class="row">
+
+                    @*<h3 id="squiz"> <input id="OPA" name="selecto" type="radio" value="{ class = form-control, id = squiz }"> @Model.OPA  </h3>*@
+                    <h3 id="squiz">@Html.RadioButtonFor(x => x.OPA, "A") @Model.OPA</h3>
+
+                </div>
+                <div class="row">
+                    @*<h3 id="squiz"> <input id="OPC" name="selecto" type="radio" value="{ class = form-control, id = squiz }"> @Model.OPB  </h3>*@
+                    <h3 id="squiz">@Html.RadioButtonFor(x => x.OPA, "B") @Model.OPB</h3>
+                </div>
+                <div class="row">
+                    @*<h3 id="squiz"> <input id="OPC" name="selecto" type="radio" value="{ class = form-control, id = squiz }"> @Model.OPC  </h3>*@
+                    <h3 id="squiz">@Html.RadioButtonFor(x => x.OPA, "C") @Model.OPC</h3>
+                </div>
+                <div class="row">
+                    @*<h3 id="squiz"> <input id="OPD" name="selecto" type="radio" value="{ class = form-control, id = squiz }"> @Model.OPD  </h3>*@
+                    <h3 id="squiz">@Html.RadioButtonFor(x => x.OPA, "D") @Model.OPD</h3>
+                </div>
+                <br />
+                <br />
+                <div class="row">
+                    <input type="submit" value="submit" class="button-55" id="savesquiz" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <script>
+var dt='@ViewBag.Rem_Time';
+var dateAr = dt.split('-');
+var newDate = dateAr[1]+'/'+ dateAr[0]+'/'+ dateAr[2];
+var end = new Date(dateAr[1]+'/'+ dateAr[0]+'/'+ dateAr[2]);
+var _second = 1000;
+var _minute = _second * 60 ;
+var _hour = _minute * 60 ;
+var _day = _hour * 24 ;
+var timer;
+function showRemaining () {
+	var now = new Date ();
+	var distance = end - now ;
+	if(distance < 0 ) {
+		clearInterval(timer);
+		document.getElementById('timecountdown').innerHTML = 'count Down Ends';
+		window.location.href = '/Quiz/EndExam';
+		return;
+	}
+	var days = Math.floor(distance / _day);
+	var _hours = Math.floor((distance % _day) / _hour);
+	var _minutes = Math.floor((distance % _hour) / _minute);
+	var _seconds = Math.floor((distance % _minute) / _second);
+	document.getElementById('timecountdown').innerHTML =  _hours ;
+	document.getElementById('timecountdown').innerHTML += ' : '+_minutes;
+	document.getElementById('timecountdown').innerHTML += ' : '+_seconds;
+}
+timer = setInterval(showRemaining,1000);
+    </script>
+
+
+</body>
+</html>

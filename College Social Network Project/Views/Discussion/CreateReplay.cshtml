@@ -1,0 +1,72 @@
+﻿@model College_Social_Network_Project.Models.Dreplay
+
+@{
+    ViewBag.Title = "CreateReplay";
+
+}
+<link href="~/Content/StyleSheet2.css" rel="stylesheet" />
+
+<h2 id="dquestion">Add Replay</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    //@Html.HiddenFor(model => model.Dquestion.Dquestion_id)
+    <div class="form-group">
+        @Html.TextAreaFor(model => model.Dreplay_content, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Dreplay_content, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div class="form-horizontal">
+
+        <div class="form-group" id="hide">
+            @Html.LabelFor(model => model.Dreplay_DateTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Dreplay_DateTime, new { htmlAttributes = new { @class = "form-control", @Value = @TempData["datetimeReplay"], @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Dreplay_DateTime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" id="hide">
+            @Html.LabelFor(model => model.Dreplay_FK_User, "Dreplay_FK_User", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Dreplay_FK_User, new { htmlAttributes = new { @class = "form-control", @Value = @TempData["userIdReplay"], @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Dreplay_FK_User, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" id="hide">
+            @Html.LabelFor(model => model.Dreplay_FK_Dquestion, "Dreplay_FK_Dquestion", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Dreplay_FK_Dquestion, new { htmlAttributes = new { @class = "form-control", @Value = @TempData["idReplay"], @readonly = "readonly" } })
+
+                @Html.ValidationMessageFor(model => model.Dreplay_FK_Dquestion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form">
+            <section class="loginForm">
+
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-3">
+                        <input type="submit" value="Add" class="button-55" id="save" />
+                        <br /><br />
+                    </div>
+
+                    <div class="col-md-offset-4 col-md-5">
+                        @Html.ActionLink("Cancel", "Index", null, new { @class = "button-55" })
+                        <br /><br />
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+    </div>
+}
+

@@ -1,0 +1,57 @@
+﻿@*@model IEnumerable<College_Social_Network_Project.Models.TBL_SETEXAM>*@
+@using PagedList.Mvc;
+@model PagedList.IPagedList<College_Social_Network_Project.Models.TBL_SETEXAM>
+@{
+    ViewBag.Title = "Reports";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<link href="~/Content/StyleSheet2.css" rel="stylesheet" />
+<h2 id="Duser">Reports</h2>
+
+<table id="users">
+    <tr>
+        <th>
+            Student Email
+        </th>
+        <th>
+            Exam Name
+        </th>
+        <th>
+            Exam Date
+        </th>
+        <th>
+            Student Score
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.Semail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EXAM_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EXAM_DATE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EXAM_STD_SCORE) /  @Html.DisplayFor(modelItem => item.EXAM_FullMark)
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+<div id="container">
+    <p></p>
+    <p></p>
+    <div class="pagination" style="margin-left:500px">
+        Page@(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+        of @Model.PageCount @Html.PagedListPager(Model, page => Url.Action("Reports", new { page }))
+    </div>
+</div>

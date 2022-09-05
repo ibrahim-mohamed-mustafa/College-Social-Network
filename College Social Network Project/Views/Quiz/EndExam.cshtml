@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <link href="~/Content/StyleSheet2.css" rel="stylesheet" />
+
+
+    @Html.Partial("_Dashboard")   
+
+    <div class="flex items-center justify-center min-h-screen p-5 bg-gray-600 min-w-screen">
+        <div class="max-w-xl p-8 text-center text-gray-800 bg-white shadow-xl lg:max-w-3xl rounded-3xl lg:p-12">
+            <h3 id="endexam">End of Exam !!</h3>
+            <div id="endexam">
+
+                <img src="/Images/endq.png" alt="">
+                <br> <br>
+                <p id="happyendexam">Your Score <img src="/Images/score.png" alt=""></p>
+                <div class="mt-4">
+
+                    <p id="endexam">
+                        @TempData["score"] / @TempData["Fullmark"]   
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
